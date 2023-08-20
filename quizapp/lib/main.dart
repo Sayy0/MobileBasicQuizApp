@@ -141,10 +141,14 @@ class QuizPageState extends State<QuizPage> {
     }
     if (r == 1) {
       buttonStr1 = answer.toString();
-      buttonStr2 = random.nextInt(range).toString();
+      do {
+        buttonStr2 = random.nextInt(range).toString();
+      } while (buttonStr2 == buttonStr1); // to ensure answers are not the same
     } else {
       buttonStr2 = answer.toString();
-      buttonStr1 = random.nextInt(range).toString();
+      do {
+        buttonStr1 = random.nextInt(range).toString();
+      } while (buttonStr1 == buttonStr2); // to ensure answers are not the same
     }
   }
 
